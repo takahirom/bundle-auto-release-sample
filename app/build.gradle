@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -8,8 +9,8 @@ android {
         applicationId "com.github.takahirom.hello_world"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -28,6 +29,11 @@ android {
             signingConfig signingConfigs.release
         }
     }
+}
+
+play {
+    track = 'beta'
+    serviceAccountCredentials = rootProject.file('release.json')
 }
 
 dependencies {
